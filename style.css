@@ -12,20 +12,26 @@ body{
 
 }
 
+.zero{
+   text-align: center;
+}
 
 .top{
-/* border-bottom:2px solid red;*/
+ border-bottom:2px solid red;
+ text-align: center;
 }
 
 .side{
-  /*border-right:2px solid red;*/
+  border-right:2px solid red;
+  text-align: center;
 }
 .center{
   border:2px solid red;
+  text-align: center;
 }
 
 div{
-font-size: 1.6em;
+font-size: 1.55em;
 padding: 10px;
-/*text-align: center;*/
+
 }
