@@ -1,0 +1,31 @@
+body{
+  background-color: blue;
+  font-family: Arial;
+  color: white;
+
+}
+
+.field {
+  display:grid;
+  grid-template-columns: repeat(9, 1fr); /*fraction units makes 2 col.responsive*/
+  grid-template-rows:repeat (9, 1fr); 
+
+}
+
+
+.top{
+/* border-bottom:2px solid red;*/
+}
+
+.side{
+  /*border-right:2px solid red;*/
+}
+.center{
+  border:2px solid red;
+}
+
+div{
+font-size: 1.6em;
+padding: 10px;
+/*text-align: center;*/
+}
