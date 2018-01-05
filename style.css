@@ -7,8 +7,9 @@ body{
 
 .field {
   display:grid;
-  grid-template-columns: repeat(9, 1fr); /*fraction units makes 2 col.responsive*/
+  grid-template-columns: repeat(9, 1fr); fraction units makes 2 col.responsive
   grid-template-rows:repeat (9, 1fr); 
+  padding: 0px;
 
 }
 
@@ -17,16 +18,18 @@ body{
 }
 
 .top{
- border-bottom:2px solid red;
+ border-bottom:1.45px dashed #39FF14;
  text-align: center;
+ color: black;
 }
 
 .side{
-  border-right:2px solid red;
+  border-right:1.45px dashed #39FF14;
   text-align: center;
+  color: black;
 }
 .center{
-  border:2px solid red;
+  border:1.45px dashed #39FF14;
   text-align: center;
 }
 
