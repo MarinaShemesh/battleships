@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="battleshipsApp">
 <head>
   <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
   <title>Battle ships</title>
 </head>
-<body>
+<body ng-controller="battleController as vm" >
+        <h1>{{vm.headings.mheading}}</h1><br>
+        <h2>{{vm.headings.subheading}}</h2><br>
   <div class="field">
     <div class="zero"></div>
     <div class="top 1">1</div>
@@ -17,26 +19,51 @@
     <div class="top 7">7</div>
     <div class="top 8">8</div>
     <div class="side">A</div>
-    <div class="center A1"></div>
-    <div class="center A2"></div>
+    
+    <div class="center A1" ></div>
+    <div class="center A2">
+       <a class="divLink" href ng-click="showShip_a2= !showShip_a2">
+         <img ng-src="img/ship_1_ab_1.jpg" ng-show="showShip_a2"/>
+       </a>
+
+    </div>
     <div class="center A3"></div>
     <div class="center A4"></div>
     <div class="center A5"></div>
     <div class="center A6"></div>
     <div class="center A7"></div>
     <div class="center A5"></div>
+
     <div class="side">B</div>
-    <div class="center B1"></div>
-    <div class="center B2"></div>
-    <div class="center B3"></div>
+    <div class="center B1">
+        <a class="divLink" href ng-click="showShip_b1= !showShip_b1">
+         <img ng-src="img/ship_1_ab_2.jpg" ng-show="showShip_b1"/>
+       </a>
+    </div>
+
+    <div class="center B2">
+      <a class="divLink" href ng-click="showShip_b2= !showShip_b2">
+        <img ng-src="img/ship_1_ab_3.jpg" ng-show="showShip_b2"/>
+       </a>
+   </div>
+
+    <div class="center B3">
+      <a class="divLink" href ng-click="showShip_c3= !showShip_c3">
+        <img ng-src="img/ship_1_ab_4.jpg" ng-show="showShip_c3"/>
+      </a>
+
+    </div>
     <div class="center B4"></div>
     <div class="center B5"></div>
     <div class="center B6"></div>
     <div class="center B7"></div>
     <div class="center B8"></div>
+
     <div class="side">C</div>
     <div class="center C1"></div>
+
     <div class="center C2"></div>
+
     <div class="center C3"></div>
     <div class="center C4"></div>
     <div class="center C5"></div>
@@ -90,4 +117,9 @@
     <div class="center H8"></div>
   </div>
 </body>
+   <script src="js/angular.min.js"></script>
+   <script src="js/app.js"></script>
+   <script src="js/controller/battleController.js"></script>
 </html>
+
+<!-- free images from http://clipart-library.com/battleship-cliparts.html -->
