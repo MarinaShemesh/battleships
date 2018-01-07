@@ -46,7 +46,7 @@ a.divLink { /*make entire div clickable*/
     top: 0;
     left: 0;
     text-decoration: none;
-    z-index: 10;
+    z-index: 10;  /* raises anchor tag above everything else in div */
 }
 
 div{
@@ -55,12 +55,3 @@ padding: 10px;
 position: relative;
 
 }
- /*   /* Makes sure the link doesn't get underlined */
-    z-index: 10;
-    /* raises anchor tag above everything else in div */
-    background-color: white;
-    workaround to make clickable in IE 
-    opacity: 0;
-    /*workaround to make clickable in IE */
-    filter: alpha(opacity=0);
-    /*workaround to make clickable in IE */*/
