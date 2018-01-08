@@ -22,8 +22,8 @@
     
     <div class="center A1" ></div>
     <div class="center A2">
-       <a class="divLink" href ng-click="vm.showImage(); vm.playSound()">
-         <img ng-src="img/ship_1_ab_1.jpg" ng-hide="showShip_a2"/>
+       <a class="divLink" href ng-click="vm.hitTaken()">
+         <img ng-src="img/ship_1_ab_1.jpg" ng-show="vm.showImage"/>
        </a>
 
     </div>
@@ -36,14 +36,14 @@
 
     <div class="side">B</div>
     <div class="center B1">
-        <a class="divLink" href ng-click="showShip_b1= !showShip_b1">
-         <img ng-src="img/ship_1_ab_2.jpg" ng-show="showShip_b1"/>
+        <a class="divLink" href ng-click="vm.hitTaken()">
+         <img ng-src="img/ship_1_ab_2.jpg" ng-show="vm.showImage"/>
        </a>
     </div>
 
     <div class="center B2">
-      <a class="divLink" href ng-click="showShip_b2= !showShip_b2">
-        <img ng-src="img/ship_1_ab_3.jpg" ng-show="showShip_b2"/>
+      <a class="divLink" href ng-click="vm.hitTaken()">
+        <img ng-src="img/ship_1_ab_3.jpg" ng-show="vm.showShip_b2"/>
        </a>
    </div>
 
