@@ -29,9 +29,9 @@
     <div class="center A1">
       <a class="divLink" ng-click="vm.Dud()">
     </div>
-    <div id="shootAble"> <!-- a2 -->
-       <a class="divLink" ng-click="vm.hitTaken()">
-         <img ng-src="img/ship_1_ab_1.jpg" ng-show="vm.showImage"/>
+    <div id="shootAble"> 
+       <a class="divLink" ng-click="vm.show('a1')">
+         <img ng-src="img/ship_1_ab_1.jpg" ng-show="vm.divShow =='a1'"/>
        </a>
     </div>
 
@@ -44,20 +44,20 @@
 
     <div class="side">B</div>
     <div id="shootAble"><!-- b1 -->
-        <a class="divLink" ng-click="vm.hitTaken()">
-         <img ng-src="img/ship_1_ab_2.jpg" ng-show="vm.showImage"/>
+        <a class="divLink" ng-click="vm.show('b1')">
+         <img ng-src="img/ship_1_ab_2.jpg" ng-show="vm.divShow =='b1'"/>
        </a>
     </div>
 
     <div id="shootAble"><!-- b2 -->
-      <a class="divLink" ng-click="vm.hitTaken()">
-        <img ng-src="img/ship_1_ab_3.jpg" ng-show="showImage"/>
+      <a class="divLink" ng-click="vm.show('b2')">
+        <img ng-src="img/ship_1_ab_3.jpg" ng-show="vm.divShow =='b2'"/>
        </a>
    </div>
 
     <div id="shootAble"><!-- b3 -->
-      <a class="divLink" href ng-click="vm.hitTaken()">
-        <img ng-src="img/ship_1_ab_4.jpg" ng-show="showImage"/>
+      <a class="divLink" href ng-click="vm.show('b3')">
+        <img ng-src="img/ship_1_ab_4.jpg" ng-show="vm.divShow =='b3'"/>
       </a>
 
     </div>

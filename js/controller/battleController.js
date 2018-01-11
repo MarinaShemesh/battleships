@@ -13,46 +13,34 @@
        vm.misses = 0;
        vm.hits = 0;
 
-       const target = angular.isDefined('shootAble');
-       console.log("target:", target);
+    vm.show = function(arg){
+      vm.divShow = arg;
+      vm.playSound()
 
-         vm.headings = {
-              mheading:"A '100 days of coding' project",
-              subheading: "Battleships: HMS Shoot them all"
-            };
-
-  
-      vm.hitTaken = function(){
-        vm.showImage = true;
-        vm.playSound()
-        |
-        $setTimeout(function() {
+       $setTimeout(function() {
          vm.clickCounter++
          vm.hits++
          vm.counter = 64-(vm.clickCounter)
-         vm.showImage = false
+         vm.divShow = false;
         }, 2000);
-
-      }
+    }
 
       vm.Dud = function(){
          vm.misses++;
          vm.clickCounter++
          vm.counter = 64-(vm.clickCounter)
-
       }
-      
-
-       vm.playSound = function(){
+   
+      vm.playSound = function(){
           const audio = new Audio('./sounds/missile.ogg');
           audio.play();
         };
 
-        vm.countHits = function(){
-          vm.hits++;
-        }
 
-    
-    }
+    }//end of battleController
 
-    // missile sound from https://freesound.org/people/Isaac200000/sounds/181476/
+// const target = angular.isDefined('shootAble');
+// console.log("target:", target);
+
+
+ // missile sound from https://freesound.org/people/Isaac200000/sounds/181476/
