@@ -4,7 +4,10 @@
      battleController.$inject = ['$scope', '$timeout'];
                                   
       function battleController ($scope, $setTimeout){
-        const vm = this;
+        
+       const vm = this;
+       vm.clickCounter = 0;
+       vm.counter = 64;
 
          vm.headings = {
               mheading:"A '100 days of coding' project",
@@ -16,14 +19,16 @@
       vm.hitTaken = function(){
         vm.showImage = true;
         $setTimeout(function() {
+         vm.clickCounter++
+         vm.counter = 64-(vm.clickCounter)
+         vm.playSound()
          vm.showImage = false
         }, 1000);
 
-        
       }
       
 
-        vm.playSound = function(){
+       vm.playSound = function(){
           const audio = new Audio('./sounds/beach.wav');
           audio.play();
         };
