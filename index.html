@@ -9,13 +9,11 @@
 
 <div class="scoreboard">
     <h3>You have {{vm.counter}} missiles left</h3>
-    <p>Misses:{{}}</p>
-    <p>Hits:{{}}</p>
+    <p>Misses: {{ vm.misses}}</p>
+    <p>Hits: {{ vm.hits}}</p>
     <p>Shots: {{vm.clickCounter}}</p>
 </div>
 
-  <!--       <h1>{{vm.headings.mheading}}</h1><br>
-        <h2>{{vm.headings.subheading}}</h2><br> -->
   <div class="field">
     <div class="zero"></div>
     <div class="top 1">1</div>
@@ -28,13 +26,15 @@
     <div class="top 8">8</div>
     <div class="side">A</div>
     
-    <div class="center A1" ></div>
-    <div class="center A2">
-       <a class="divLink" href ng-click="vm.hitTaken()">
+    <div class="center A1">
+      <a class="divLink" ng-click="vm.Dud()">
+    </div>
+    <div id="shootAble"> <!-- a2 -->
+       <a class="divLink" ng-click="vm.hitTaken()">
          <img ng-src="img/ship_1_ab_1.jpg" ng-show="vm.showImage"/>
        </a>
-
     </div>
+
     <div class="center A3"></div>
     <div class="center A4"></div>
     <div class="center A5"></div>
@@ -43,21 +43,21 @@
     <div class="center A5"></div>
 
     <div class="side">B</div>
-    <div class="center B1">
-        <a class="divLink" href ng-click="vm.hitTaken()">
+    <div id="shootAble"><!-- b1 -->
+        <a class="divLink" ng-click="vm.hitTaken()">
          <img ng-src="img/ship_1_ab_2.jpg" ng-show="vm.showImage"/>
        </a>
     </div>
 
-    <div class="center B2">
-      <a class="divLink" href ng-click="vm.hitTaken()">
-        <img ng-src="img/ship_1_ab_3.jpg" ng-show="false"/>
+    <div id="shootAble"><!-- b2 -->
+      <a class="divLink" ng-click="vm.hitTaken()">
+        <img ng-src="img/ship_1_ab_3.jpg" ng-show="showImage"/>
        </a>
    </div>
 
-    <div class="center B3">
-      <a class="divLink" href ng-click="showShip_c3= !showShip_c3;vm.hitTaken()">
-        <img ng-src="img/ship_1_ab_4.jpg" ng-show="showShip_c3"/>
+    <div id="shootAble"><!-- b3 -->
+      <a class="divLink" href ng-click="vm.hitTaken()">
+        <img ng-src="img/ship_1_ab_4.jpg" ng-show="showImage"/>
       </a>
 
     </div>
