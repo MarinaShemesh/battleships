@@ -1,10 +1,13 @@
    (function () {
      'use strict';
 
-      angular.module('battleshipsApp', ['ngMaterial'])
-       .config(function($mdThemingProvider) {
-        $mdThemingProvider.disableTheming();
-        });
+      angular.module('battleshipsApp', ['ngFlash'])
+        
+       .config([ 'FlashProvider',
+        function(FlashProvider) {
+        FlashProvider.setTimeout(5000);
 
+        }])
+     
    })();
 

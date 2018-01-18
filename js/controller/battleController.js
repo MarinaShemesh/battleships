@@ -1,62 +1,91 @@
      angular.module('battleshipsApp')
              .controller('battleController', battleController);
      
-     battleController.$inject = ['$scope', '$timeout', '$mdToast'];
+     battleController.$inject = ['$scope', '$timeout', 'Flash'];
                                   
-      function battleController ($scope, $setTimeout, $mdToast){
+      function battleController ($scope, $setTimeout, Flash){
 
          
        const vm = this;
       
        vm.clickCounter = 0;
-       vm.counter = 64;
+       vm.counter = 10;
        vm.misses = 0;
        vm.hits = 0;
 
-       vm.playShot = playShot;
-       vm.playMiss = playMiss;
-       vm.showMessage = showMessage;
+       vm.playshotSound = playshotSound;
+       vm.playmissSound = playmissSound;
+       vm.ammoCheck = ammoCheck;
+       vm. missMessage = missMessage;
+       vm.hitMessage = hitMessage;
+       vm.endMessage = endMessage;
+       
+  
 
 
     vm.show = function(arg){
       vm.divShow = arg;
-      vm.playShot()
-
+      vm.playshotSound()
+      vm.hitMessage ()
+      
        $setTimeout(function() {
          vm.clickCounter++
          vm.hits++
-         vm.counter = 64-(vm.clickCounter)
+         vm.counter = 10-(vm.clickCounter)
          vm.divShow = false;
+         vm.ammoCheck()
         }, 2000);
     }
 
       vm.Dud = function(){
-         vm.playMiss()
+         vm.playmissSound()
          vm.misses++;
          vm.clickCounter++
-         vm.counter = 64-(vm.clickCounter)
-         vm.showMessage()
+         vm.counter = 10-(vm.clickCounter)
+         vm.missMessage()
+         vm.ammoCheck()
       }
    
-      function playShot(){
+      function playshotSound() {
           const audio = new Audio('./sounds/missile.ogg');
           audio.play();
         };
 
-      function playMiss (){
+      function playmissSound () {
           const audio = new Audio('./sounds/miss.wav');
           audio.play();
         };
 
+      function missMessage (){
+        const message = 'You missed...LOSER!!'
+        const id = Flash.create(
+                'success', message, 1000, 
+                {class: 'custom-class', id: 'custom-id'}, false)
+       };
 
-      function showMessage () {
-         $mdToast.show (
-         $mdToast.simple()
-          .content('You missed!')                       
-          .hideDelay(2000)
-          // .position("right")
-          .theme('error-toast')
-        )};
+        function hitMessage (){
+        const message = 'Bullseye!!!!'
+        const id = Flash.create(
+                'success', message, 1000, 
+                {class: 'custom-class', id: 'custom-id'}, false)
+       };
+
+        function endMessage(){
+        const message = 'You are out of ammo dude'
+        const id = Flash.create(
+                'success', message, 1000, 
+                {class: 'custom-class', id: 'custom-id'}, false)
+       };
+
+       function ammoCheck() {
+         if (vm.clickCounter == 10 && vm.clickCounter < 10 ){
+          return endMessage()
+          console.log("no ammo left");
+         } else {
+          return "Keep on shootin'";
+         }
+      }
+
 
     }//end of battleController
 

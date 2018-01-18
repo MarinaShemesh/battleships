@@ -4,6 +4,23 @@ body{
   color: white;
 
 }
+.header {
+  display:grid;
+  grid-gap: 20px;
+  grid-template-columns: auto auto;
+  padding: 10px;
+}
+
+.scoreboard{
+  background-color: blue;
+  font-size: 1em;
+}
+
+.message{
+  background-color: blue;
+  font-size: 12px;
+  color:white;
+}
 
 .field {
   display:grid;
@@ -15,18 +32,23 @@ body{
 
 .zero{
    text-align: center;
+   font-size: 1.55em;
+   padding: 10px;
+   position: relative;
 }
 
 .top{
  border-bottom:1.45px dashed #39FF14;
  text-align: center;
  color: black;
+
 }
 
 .side{
   border-right:1.45px dashed #39FF14;
   text-align: center;
   color: black;
+
 }
 
 #shootAble{
@@ -62,7 +84,3 @@ position: relative;
 
 }
 
-.md-error-toast-theme .md-toast-content {
-    background-color: red;
-    height: 50% !important;
-}
