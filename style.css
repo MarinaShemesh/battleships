@@ -61,3 +61,8 @@ padding: 10px;
 position: relative;
 
 }
+
+.md-error-toast-theme .md-toast-content {
+    background-color: red;
+    height: 50% !important;
+}

@@ -1,9 +1,9 @@
      angular.module('battleshipsApp')
              .controller('battleController', battleController);
      
-     battleController.$inject = ['$scope', '$timeout'];
+     battleController.$inject = ['$scope', '$timeout', '$mdToast'];
                                   
-      function battleController ($scope, $setTimeout){
+      function battleController ($scope, $setTimeout, $mdToast){
 
          
        const vm = this;
@@ -12,6 +12,11 @@
        vm.counter = 64;
        vm.misses = 0;
        vm.hits = 0;
+
+       vm.playShot = playShot;
+       vm.playMiss = playMiss;
+       vm.showMessage = showMessage;
+
 
     vm.show = function(arg){
       vm.divShow = arg;
@@ -30,18 +35,28 @@
          vm.misses++;
          vm.clickCounter++
          vm.counter = 64-(vm.clickCounter)
+         vm.showMessage()
       }
    
-      vm.playShot = function(){
+      function playShot(){
           const audio = new Audio('./sounds/missile.ogg');
           audio.play();
         };
 
-      vm.playMiss = function(){
+      function playMiss (){
           const audio = new Audio('./sounds/miss.wav');
           audio.play();
         };
 
+
+      function showMessage () {
+         $mdToast.show (
+         $mdToast.simple()
+          .content('You missed!')                       
+          .hideDelay(2000)
+          // .position("right")
+          .theme('error-toast')
+        )};
 
     }//end of battleController
 
