@@ -15,11 +15,10 @@
 
        vm.playshotSound = playshotSound;
        vm.playmissSound = playmissSound;
-       vm.ammoCheck = ammoCheck;
-       vm. missMessage = missMessage;
+       vm.missMessage = missMessage;
        vm.hitMessage = hitMessage;
        vm.endMessage = endMessage;
-       
+       vm.ammoCheck = ammoCheck;
   
 
 
@@ -63,27 +62,28 @@
                 {class: 'custom-class', id: 'custom-id'}, false)
        };
 
-        function hitMessage (){
+      function hitMessage (){
         const message = 'Bullseye!!!!'
         const id = Flash.create(
                 'success', message, 1000, 
                 {class: 'custom-class', id: 'custom-id'}, false)
        };
 
-        function endMessage(){
-        const message = 'You are out of ammo dude'
+       function endMessage(){
+        const message = '<span style="border:2px solid red; padding:8px"><strong>You are out of ammo, dude!!</strong></span>'
         const id = Flash.create(
-                'success', message, 1000, 
+                'success', message, 10000, 
                 {class: 'custom-class', id: 'custom-id'}, false)
        };
 
        function ammoCheck() {
-         if (vm.clickCounter == 10 && vm.clickCounter < 10 ){
+         if (vm.clickCounter === 10 || vm.counter < 0 ){
+          vm.counter = 0
+          vm.show = false
+          vm.Dud = false
           return endMessage()
-          console.log("no ammo left");
-         } else {
-          return "Keep on shootin'";
-         }
+                    
+         } 
       }
 
 

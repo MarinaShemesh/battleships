@@ -3,7 +3,7 @@
 
       angular.module('battleshipsApp', ['ngFlash'])
         
-       .config([ 'FlashProvider',
+       .config(['FlashProvider',
         function(FlashProvider) {
         FlashProvider.setTimeout(5000);
 

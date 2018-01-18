@@ -20,8 +20,12 @@ body{
   background-color: blue;
   font-size: 12px;
   color:white;
-}
+ }
 
+.Flash{
+background-color: red;
+color:black;
+}
 .field {
   display:grid;
   grid-template-columns: repeat(9, 1fr); fraction units makes 2 col.responsive
