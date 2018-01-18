@@ -15,7 +15,7 @@
 
     vm.show = function(arg){
       vm.divShow = arg;
-      vm.playSound()
+      vm.playShot()
 
        $setTimeout(function() {
          vm.clickCounter++
@@ -26,13 +26,19 @@
     }
 
       vm.Dud = function(){
+         vm.playMiss()
          vm.misses++;
          vm.clickCounter++
          vm.counter = 64-(vm.clickCounter)
       }
    
-      vm.playSound = function(){
+      vm.playShot = function(){
           const audio = new Audio('./sounds/missile.ogg');
+          audio.play();
+        };
+
+      vm.playMiss = function(){
+          const audio = new Audio('./sounds/miss.wav');
           audio.play();
         };
 
@@ -44,3 +50,4 @@
 
 
  // missile sound from https://freesound.org/people/Isaac200000/sounds/181476/
+ //miss sound from https://freesound.org/people/AlienXXX/sounds/139763/
