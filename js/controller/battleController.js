@@ -12,6 +12,7 @@
        vm.counter = 10;
        vm.misses = 0;
        vm.hits = 0;
+       vm.entireShipHit = 0;
 
        vm.playshotSound = playshotSound;
        vm.playmissSound = playmissSound;
@@ -19,13 +20,19 @@
        vm.hitMessage = hitMessage;
        vm.endMessage = endMessage;
        vm.ammoCheck = ammoCheck;
-  
+       vm.entireShipCheck = entireShipCheck;
 
+  
+const shipsShot = [];
+const shipsshotCheck = ["b1", "b2", "b3", "a2"];
+console.log("shipsShot:", shipsShot);
+console.log("shipsshotCheck:", shipsshotCheck)
 
     vm.show = function(arg){
       vm.divShow = arg;
       vm.playshotSound()
       vm.hitMessage ()
+      shipsShot.push(vm.divShow)
       
        $setTimeout(function() {
          vm.clickCounter++
@@ -33,7 +40,8 @@
          vm.counter = 10-(vm.clickCounter)
          vm.divShow = false;
          vm.ammoCheck()
-        }, 2000);
+         vm.entireShipCheck()
+         }, 2000);
     }
 
       vm.Dud = function(){
@@ -51,7 +59,7 @@
         };
 
       function playmissSound () {
-          const audio = new Audio('./sounds/miss.wav');
+         const audio = new Audio('./sounds/miss.wav');
           audio.play();
         };
 
@@ -69,22 +77,37 @@
                 {class: 'custom-class', id: 'custom-id'}, false)
        };
 
-       function endMessage(){
+      function endMessage(){
         const message = '<span style="border:2px solid red; padding:8px"><strong>You are out of ammo, dude!!</strong></span>'
         const id = Flash.create(
                 'success', message, 10000, 
                 {class: 'custom-class', id: 'custom-id'}, false)
        };
 
-       function ammoCheck() {
+      function fullShipHitMessage(){
+        const message = '<span style="border:2px solid red; padding:8px"><strong>You downed a full ship MAN!</strong></span>'
+        const id = Flash.create(
+                'success', message, 1000, 
+                {class: 'custom-class', id: 'custom-id'}, false)
+       };
+
+      function ammoCheck() {
          if (vm.clickCounter === 10 || vm.counter < 0 ){
           vm.counter = 0
           vm.show = false
           vm.Dud = false
           return endMessage()
-                    
-         } 
+          } 
       }
+
+  function entireShipCheck() {
+    if (shipsShot == shipsshotCheck) {
+       console.log("shipsshotCheck = shipsShot:", yes);
+       vm.entireShipHit++ 
+       return fullShipHitMessage()
+    }
+
+  }
 
 
     }//end of battleController
