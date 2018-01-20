@@ -101,16 +101,15 @@ console.log("shipsshotCheck:", shipsshotCheck)
       }
 
   function entireShipCheck() {
-    if (shipsShot == shipsshotCheck) {
-       console.log("shipsshotCheck = shipsShot:", yes);
-       vm.entireShipHit++ 
-       return fullShipHitMessage()
-    }
+        if (shipsShot.length === 4) {
+          vm.entireShipHit++;
+          return fullShipHitMessage()
+        }
+      }
 
-  }
+ }//end of battleController
 
 
-    }//end of battleController
 
 // const target = angular.isDefined('shootAble');
 // console.log("target:", target);
