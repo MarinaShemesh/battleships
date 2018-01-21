@@ -24,7 +24,10 @@
 
   
 const shipsShot = [];
-const shipsshotCheck = ["b1", "b2", "b3", "a2"];
+const shipsshotCheck = [ ["b1", "b2", "b3", "a2"],
+                         ["b4", "c3", "c4", "c5"],
+                       ];
+
 console.log("shipsShot:", shipsShot);
 console.log("shipsshotCheck:", shipsshotCheck)
 
@@ -100,12 +103,30 @@ console.log("shipsshotCheck:", shipsshotCheck)
           } 
       }
 
-  function entireShipCheck() {
-        if (shipsShot.length === 4) {
-          vm.entireShipHit++;
-          return fullShipHitMessage()
+function entireShipCheck() {
+      if(shipsShot.sort().join(',') === shipsshotCheck.sort().join(',')){
+        vm.entireShipHit++;
+        return fullShipHitMessage()
+    }
+  }
+
+function isArrayInArray(source, search) {
+    const searchLen = search.length;
+    for (let i = 0, len = source.length; i < len; i++) {
+        // skip not same length
+        if (source[i].length != searchLen) continue;
+        // compare each element
+        for (let j = 0; j < searchLen; j++) {
+            // if a pair doesn't match skip forwards
+            if (source[i][j] !== search[j]) {
+                break;
+            }
+            return true;
         }
-      }
+    }
+    return false;
+}
+console.log(isArrayInArray([[1,2,3],[3,4,5]], [1,2,3]));
 
  }//end of battleController
 
