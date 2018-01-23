@@ -11,6 +11,7 @@
        const shipsShot = [];
        const shipsshotCheck = [ ["b1", "b2", "b3", "a2"],
                               ["b4", "c3", "c4", "c5"],
+                              ["e3", "e4"]
                               ];
 
       console.log("shipsShot:", shipsShot);
@@ -31,7 +32,9 @@
        vm.ammoCheck = ammoCheck;
        vm.entireShipCheck = entireShipCheck;
        vm.shipsShot = shipsShot;
-       vm.shipsshotCheck = shipsshotCheck;
+       // vm.shipsshotCheck = shipsshotCheck;
+       vm.fullShipHitMessage = fullShipHitMessage;
+       vm.gotawholeShip = gotawholeShip;
 
 
   
@@ -47,7 +50,7 @@
          vm.counter = 10-(vm.clickCounter)
          vm.divShow = false;
          vm.ammoCheck()
-         vm.entireShipCheck()
+         vm.gotawholeShip()
          console.log('shipsShot.length:', shipsShot.length);
          }, 2000);
     }
@@ -104,62 +107,40 @@
           } 
       }
 
-// function entireShipCheck() {
-//       if(shipsShot.sort().join(',') === shipsshotCheck.sort().join(',')){
-//         vm.entireShipHit++;
-//         return fullShipHitMessage()
-//     }
-//   }
+ 
 
-function entireShipCheck(shipsshotCheck, shipsShot) {
-    const shipsShotLen = vm.shipsShot.length;
-    for (var i = 0, len = vm.shipsshotCheck.length; i < len; i++) {
+function entireShipCheck(source, search) {
+    const searchLen = search.length;
+    for (let i = 0, len = source.length; i < len; i++) {
         // skip not same length
-        if (vm.shipsshotCheck[i].length != shipsShotLen) continue;
+        if (source[i].length != searchLen) continue;
         // compare each element
-        for (var j = 0; j < shipsShotLen; j++) {
+        for (let j = 0; j < searchLen; j++) {
             // if a pair doesn't match skip forwards
-            if (vm.shipsshotCheck[i][j] !== vm.shipsShot[j]) {
+            if (source[i][j] !== search[j]) {
                 break;
             }
             return true;
-
         }
     }
+    return false;
+}
 
-  }
-
-//     return false;
-// }
-
-    function fullShipHitMessage(){
-       
-     if (entireShipCheck = true) {
+ function fullShipHitMessage(){
         const message = '<span style="border:2px solid red; padding:8px"><strong>You downed a full ship MAN!</strong></span>'
         const id = Flash.create(
-                'success', message, 1000, 
+                'success', message, 3000, 
                 {class: 'custom-class', id: 'custom-id'}, false)
+       }
 
-     }
-   
-};
-// function isArrayInArray(shipsshotCheck, shipsShot) {
-//     const shipsShotLen = shipsShot.length;
-//     for (let i = 0, len = shipsshotCheck.length; i < len; i++) {
-//         // skip not same length
-//         if (shipsshotCheck[i].length != shipsShotLen) continue;
-//         // compare each element
-//         for (let j = 0; j < shipsShotLen; j++) {
-//             // if a pair doesn't match skip forwards
-//             if (shipsshotCheck[i][j] !== shipsShot[j]) {
-//                 break;
-//             }
-//             return true;
-//         }
-//     }
-//     return false;
-// }
-// // console.log(isArrayInArray([[1,2,3],[3,4,5]], [1,2,3]));
+function gotawholeShip(){
+    if (entireShipCheck(shipsshotCheck,shipsShot)){
+     alert("got him");
+    }
+  else {
+    alert("this is false");
+  }
+}
 
  }//end of battleController
 
